@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aegis Crypto-Watch | High-Performance Monitoring Dashboard</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Custom Neon Theme CSS -->
+    <link rel="stylesheet" href="assets/css/neon.css">
+    
+    <!-- jQuery UI CSS for effects -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/ui-darkness/jquery-ui.css">
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body class="bg-dark">
+    <div class="container-fluid py-4">
+        <!-- Header -->
+        <header class="mb-4">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <h1 class="neon-text-primary mb-0">🛡️ Aegis Crypto-Watch</h1>
+                    <p class="text-muted mb-0">High-Performance Real-Time Cryptocurrency Monitoring</p>
+                </div>
+                <div class="col-md-4 text-end">
+                    <div class="badge bg-success fs-6" id="connectionStatus">
+                        <span id="statusIndicator">●</span> Connecting...
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Search & Filter Section -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card bg-dark border-neon">
+                    <div class="card-body">
+                        <div class="input-group">
+                            <span class="input-group-text bg-dark border-neon neon-text-secondary">
+                                <i class="bi bi-search"></i> 🔍
+                            </span>
+                            <input type="text" 
+                                   class="form-control bg-dark border-neon text-light" 
+                                   id="searchInput" 
+                                   placeholder="Coin ara... (örn: BTC, ETH, BNB)">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content Grid -->
+        <div class="row">
+            <!-- Left Column: Crypto Table -->
+            <div class="col-lg-8 mb-4">
+                <div class="card bg-dark border-neon">
+                    <div class="card-header bg-dark border-neon">
+                        <h5 class="neon-text-primary mb-0">📊 Live Market Data</h5>
+                        <small class="text-muted">Son güncelleme: <span id="lastUpdate">--</span></small>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="table-responsive" style="max-height: 600px; overflow-y: auto;">
+                            <table class="table table-dark table-hover mb-0" id="cryptoTable">
+                                <thead class="sticky-top bg-dark">
+                                    <tr>
+                                        <th>Coin</th>
+                                        <th>Fiyat (USDT)</th>
+                                        <th>24h Değişim</th>
+                                        <th>Hacim</th>
+                                        <th>Volatility Score</th>
+                                        <th>Signal</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="cryptoTableBody">
+                                    <!-- Dynamic rows will be inserted here -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Charts & Logs -->
+            <div class="col-lg-4">
+                <!-- Top 5 Gainers Chart -->
+                <div class="card bg-dark border-neon mb-4">
+                    <div class="card-header bg-dark border-neon">
+                        <h5 class="neon-text-primary mb-0">📈 Top 5 Gainers</h5>
+                    </div>
+                    <div class="card-body">
+                        <canvas id="topGainersChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Signal Logs Panel -->
+                <div class="card bg-dark border-neon">
+                    <div class="card-header bg-dark border-neon">
+                        <h5 class="neon-text-primary mb-0">🚨 Signal Logs</h5>
+                        <button class="btn btn-sm btn-outline-danger" id="clearLogsBtn">Temizle</button>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="signal-logs-container" id="signalLogs">
+                            <!-- Signal logs will be prepended here -->
+                            <div class="text-center text-muted p-3">
+                                <small>Signal bekleniyor...</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery 3.7.1 -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- jQuery UI for effects (highlight animation) -->
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+    
+    <!-- Custom JS Modules -->
+    <script src="assets/js/api-client.js"></script>
+    <script src="assets/js/logic-core.js"></script>
+    <script src="assets/js/ui-stream.js"></script>
+    
+    <!-- Main Application Initialization -->
+    <script>
+        $(document).ready(function() {
+            // Initialize the application
+            console.log('Aegis Crypto-Watch initialized');
+            
+            // Start fetching data
+            if (typeof APIClient !== 'undefined') {
+                APIClient.startPolling();
+            }
+        });
+    </script>
+</body>
+</html>

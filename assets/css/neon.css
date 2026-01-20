@@ -1,0 +1,363 @@
+/* Aegis Crypto-Watch - Neon Theme Stylesheet */
+
+:root {
+    --neon-primary: #ff0066;
+    --neon-secondary: #ff3366;
+    --neon-success: #20c997;
+    --neon-danger: #ff0066;
+    --neon-warning: #ffc107;
+    --neon-bg-dark: #1a1a2e;
+    --neon-bg-darker: #16213e;
+}
+
+body {
+    background: #1a1a2e;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #e0e0e0;
+}
+
+/* Neon Text Effects - Reduced */
+.neon-text-primary {
+    color: var(--neon-primary);
+    font-weight: 600;
+}
+
+.neon-text-secondary {
+    color: var(--neon-secondary);
+}
+
+.neon-text-success {
+    color: var(--neon-success);
+}
+
+.neon-text-danger {
+    color: var(--neon-danger);
+}
+
+.neon-text-warning {
+    color: var(--neon-warning);
+}
+
+/* Neon Border Effects - Reduced */
+.border-neon {
+    border: 1px solid rgba(255, 0, 102, 0.4) !important;
+}
+
+.border-neon-success {
+    border: 1px solid rgba(32, 201, 151, 0.4) !important;
+}
+
+.border-neon-danger {
+    border: 1px solid rgba(220, 53, 69, 0.4) !important;
+}
+
+.border-neon-warning {
+    border: 1px solid rgba(255, 193, 7, 0.4) !important;
+}
+
+/* Card Styling */
+.card {
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    background-color: #212529 !important;
+    color: #e0e0e0;
+}
+
+.card-body {
+    color: #e0e0e0;
+}
+
+.card-header {
+    background-color: #2a2e32 !important;
+    color: #e0e0e0;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Table Styling */
+.table-dark {
+    background-color: transparent;
+    color: #e0e0e0;
+}
+
+.table-dark thead th {
+    background-color: rgba(255, 0, 102, 0.15);
+    border-bottom: 2px solid rgba(255, 0, 102, 0.5);
+    color: var(--neon-primary);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+}
+
+.table-dark tbody tr {
+    transition: all 0.2s ease;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    color: #e0e0e0;
+}
+
+.table-dark tbody tr:hover {
+    background-color: rgba(255, 0, 102, 0.08);
+}
+
+/* Signal Badge Styles */
+.signal-badge {
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: inline-block;
+}
+
+.signal-whale {
+    background: var(--neon-success);
+    color: #000;
+    font-weight: 700;
+}
+
+.signal-panic {
+    background: var(--neon-danger);
+    color: #fff;
+    font-weight: 700;
+}
+
+.signal-neutral {
+    background: rgba(128, 128, 128, 0.3);
+    color: #ccc;
+}
+
+/* Pulse Animations - Removed excessive glow */
+
+/* Row Highlight Animation - Reduced */
+@keyframes highlight-row {
+    0% {
+        background-color: rgba(32, 201, 151, 0.2);
+    }
+    100% {
+        background-color: transparent;
+    }
+}
+
+.row-highlight {
+    animation: highlight-row 1.5s ease-out;
+}
+
+.row-highlight-danger {
+    animation: highlight-row-danger 1.5s ease-out;
+}
+
+@keyframes highlight-row-danger {
+    0% {
+        background-color: rgba(220, 53, 69, 0.2);
+    }
+    100% {
+        background-color: transparent;
+    }
+}
+
+/* Signal Logs Container */
+.signal-logs-container {
+    max-height: 400px;
+    overflow-y: auto;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.signal-log-item {
+    padding: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    animation: slideIn 0.3s ease-out;
+    color: #e0e0e0;
+}
+
+.signal-log-item:hover {
+    background-color: rgba(255, 0, 102, 0.05);
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.signal-log-time {
+    font-size: 0.7rem;
+    color: #888;
+    font-family: 'Courier New', monospace;
+}
+
+.signal-log-coin {
+    font-weight: 600;
+    color: var(--neon-primary);
+}
+
+.signal-log-whale {
+    color: var(--neon-success);
+}
+
+.signal-log-panic {
+    color: var(--neon-danger);
+}
+
+/* Volatility Score Badge */
+.volatility-badge {
+    padding: 4px 8px;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.volatility-high {
+    background: var(--neon-warning);
+    color: #000;
+}
+
+.volatility-medium {
+    background: #ffaa00;
+    color: #000;
+}
+
+.volatility-low {
+    background: rgba(128, 128, 128, 0.3);
+    color: #ccc;
+}
+
+/* Connection Status Indicator */
+#statusIndicator {
+    animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+
+.status-connected {
+    background-color: var(--neon-success) !important;
+    color: #000 !important;
+    box-shadow: none !important;
+}
+
+.status-connecting {
+    background-color: var(--neon-warning) !important;
+    color: #000 !important;
+    box-shadow: none !important;
+}
+
+.status-error {
+    background-color: var(--neon-danger) !important;
+    color: #fff !important;
+    box-shadow: none !important;
+}
+
+/* Scrollbar Styling */
+.signal-logs-container::-webkit-scrollbar,
+.table-responsive::-webkit-scrollbar {
+    width: 8px;
+}
+
+.signal-logs-container::-webkit-scrollbar-track,
+.table-responsive::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.signal-logs-container::-webkit-scrollbar-thumb,
+.table-responsive::-webkit-scrollbar-thumb {
+    background: rgba(255, 0, 102, 0.5);
+    border-radius: 4px;
+}
+
+.signal-logs-container::-webkit-scrollbar-thumb:hover,
+.table-responsive::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 0, 102, 0.7);
+}
+
+/* Input Styling */
+.form-control {
+    color: #e0e0e0 !important;
+}
+
+.form-control:focus {
+    background-color: rgba(0, 0, 0, 0.3);
+    border-color: var(--neon-primary);
+    box-shadow: 0 0 5px rgba(255, 0, 102, 0.2);
+    color: #fff !important;
+}
+
+/* Price Change Colors */
+.price-up {
+    color: var(--neon-success) !important;
+    font-weight: 600;
+}
+
+.price-down {
+    color: var(--neon-danger) !important;
+    font-weight: 600;
+}
+
+.price-neutral {
+    color: #e0e0e0 !important;
+}
+
+/* General text color fixes */
+.text-muted {
+    color: #adb5bd !important;
+}
+
+.coin-name {
+    color: #e0e0e0;
+    font-weight: 600;
+}
+
+.coin-price {
+    color: #fff;
+    font-weight: 600;
+}
+
+/* Input group styling */
+.input-group-text {
+    background-color: #212529 !important;
+    border-color: rgba(255, 0, 102, 0.4) !important;
+    color: #e0e0e0 !important;
+}
+
+/* Badge styling */
+.badge {
+    box-shadow: none !important;
+}
+
+/* Button styling */
+.btn-outline-danger {
+    border-color: var(--neon-danger);
+    color: var(--neon-danger);
+}
+
+.btn-outline-danger:hover {
+    background-color: var(--neon-danger);
+    border-color: var(--neon-danger);
+    color: #fff;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .neon-text-primary {
+        font-size: 1.5rem;
+    }
+    
+    .table-dark thead th {
+        font-size: 0.7rem;
+        padding: 8px 4px;
+    }
+}
